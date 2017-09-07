@@ -51,7 +51,7 @@ namespace Microsoft.Azure.Devices.Applications.RemoteMonitoring.UnitTests.Infras
             Assert.Equal("Send Message", savedMappings[0].ActionId);
             Assert.Equal("AlarmTemp", savedMappings[0].RuleOutput);
             Assert.Equal("Raise Alarm", savedMappings[1].ActionId);
-            Assert.Equal("AlarmHumidity", savedMappings[1].RuleOutput);
+            Assert.Equal("AlarmWaterLevel", savedMappings[1].RuleOutput);
         }
 
         [Fact]
@@ -96,7 +96,7 @@ namespace Microsoft.Azure.Devices.Applications.RemoteMonitoring.UnitTests.Infras
             Assert.NotNull(ret);
             Assert.Equal(2, ret.Count);
             Assert.Equal("AlarmTemp", ret[0]);
-            Assert.Equal("AlarmHumidity", ret[1]);
+            Assert.Equal("AlarmWaterLevel", ret[1]);
         }
     }
 }

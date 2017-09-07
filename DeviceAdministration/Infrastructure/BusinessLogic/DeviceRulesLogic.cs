@@ -164,8 +164,8 @@ namespace Microsoft.Azure.Devices.Applications.RemoteMonitoring.DeviceAdmin.Infr
                 await SaveDeviceRuleAsync(temperatureRule);
 
                 DeviceRule humidityRule = await GetNewRuleAsync(deviceId);
-                humidityRule.DataField = DeviceRuleDataFields.Humidity;
-                humidityRule.RuleOutput = "AlarmHumidity";
+                humidityRule.DataField = DeviceRuleDataFields.WaterLevel;
+                humidityRule.RuleOutput = "AlarmWaterLevel";
                 humidityRule.Threshold = 48.0d;
                 await SaveDeviceRuleAsync(humidityRule);
             }

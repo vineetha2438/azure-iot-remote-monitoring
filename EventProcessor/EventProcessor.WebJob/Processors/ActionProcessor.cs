@@ -150,24 +150,24 @@ namespace Microsoft.Azure.Devices.Applications.RemoteMonitoring.EventProcessor.W
                     }
                 }
 
-                if (ruleOutput.Equals("AlarmHumidity", StringComparison.OrdinalIgnoreCase))
+                if (ruleOutput.Equals("AlarmWaterLevel", StringComparison.OrdinalIgnoreCase))
                 {
-                    Trace.TraceInformation("ProcessAction: humidity rule triggered!");
-                    double humidityReading = eventData.Reading;
+                    Trace.TraceInformation("ProcessAction: water level rule triggered!");
+                    double waterLevelReading = eventData.Reading;
 
-                    string humidityActionId = await _actionMappingLogic.GetActionIdFromRuleOutputAsync(ruleOutput);
+                    string waterLevelActionId = await _actionMappingLogic.GetActionIdFromRuleOutputAsync(ruleOutput);
 
-                    if (!string.IsNullOrWhiteSpace(humidityActionId))
+                    if (!string.IsNullOrWhiteSpace(waterLevelActionId))
                     {
                         await _actionLogic.ExecuteLogicAppAsync(
-                            humidityActionId,
+                            waterLevelActionId,
                             deviceId,
                             "Humidity",
-                            humidityReading);
+                            waterLevelReading);
                     }
                     else
                     {
-                        Trace.TraceError("ActionProcessor: humidityActionId value is empty for humidityRuleOutput '{0}'", ruleOutput);
+                        Trace.TraceError("ActionProcessor: waterLevelActionId value is empty for waterLevelRuleOutput '{0}'", ruleOutput);
                     }
                 }
             }
